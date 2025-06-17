@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soham Kulkarni - Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1a202c;
+            --bg-medium: #2d3748;
+            --bg-light: #4a5568;
+            --text-light: #e2e8f0;
+            --accent-indigo: #667eea;
+            --accent-purple: #9f7aea;
+            --accent-green: #48bb78;
+            --accent-red: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--accent-purple);
+        }
+
+        .header {
+            background-color: rgba(26, 32, 44, 0.95);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-indigo);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--accent-indigo);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--accent-purple);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--bg-dark), #0f151c);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            background: rgba(102, 126, 234, 0.15);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.6;
+            animation: blob-move 15s infinite ease-in-out alternate;
+            z-index: 0;
+        }
+
+        .hero::before {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 15%;
+        }
+
+        .hero::after {
+            width: 300px;
+            height: 300px;
+            bottom: 15%;
+            right: 20%;
+            animation-delay: 5s;
+            background: rgba(159, 122, 234, 0.15);
+        }
+
+        @keyframes blob-move {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 40px) scale(0.95); }
+            75% { transform: translate(60px, -50px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-indigo), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-indigo);
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+        }
+        .btn:hover {
+            background-color: var(--accent-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(159, 122, 234, 0.4);
+        }
+
+        .about-section, .contact-section {
+            background-color: var(--bg-medium);
+        }
+
+        .skills-section, .projects-section, .experience-section {
+            background-color: var(--bg-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            background: linear-gradient(45deg, var(--accent-indigo), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+        }
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-indigo);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+        .about-text {
+            max-width: 800px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .skill-card {
+            background-color: var(--bg-medium);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--bg-light);
+        }
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-indigo);
+        }
+        .skill-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent-indigo);
+        }
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        .skill-card li {
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .skill-card li::before {
+            content: '•';
+            color: var(--accent-green);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 2rem;
+        }
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--bg-light);
+            top: 0;
+            bottom: 0;
+            left: 10px;
+            border-radius: 2px;
+        }
+        .experience-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding: 1.5rem;
+            background-color: var(--bg-medium);
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--bg-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-purple);
+        }
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: var(--accent-indigo);
+            border-radius: 50%;
+            left: -32px;
+            top: 2rem;
+            border: 3px solid var(--bg-dark);
+            z-index: 1;
+        }
+        .experience-item h3 {
+            color: var(--accent-indigo);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .experience-item .role {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        .experience-item .date {
+            font-size: 0.95rem;
+            color: #a0aec0;
+            margin-bottom: 1rem;
+        }
+        .experience-item ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+        }
+        .experience-item li {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .project-card {
+            background-color: var(--bg-medium);
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 1px solid var(--bg-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-purple);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .project-content {
+            padding: 1.5rem;
+        }
+        .project-content h3 {
+            font-size: 1.6rem;
+            color: var(--accent-indigo);
+            margin-bottom: 0.5rem;
+        }
+        .project-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .project-tag {
+            background-color: var(--bg-light);
+            color: var(--accent-green);
+            padding: 0.3rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .project-links a {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent-indigo);
+            color: white;
+            border-radius: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 0.75rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .project-links a:hover {
+            background-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+        .project-links a.demo {
+            background-color: var(--accent-purple);
+        }
+        .project-links a.demo:hover {
+            background-color: var(--accent-indigo);
+        }
+
+
+        .contact-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        .contact-info p strong {
+            color: var(--accent-indigo);
+            margin-right: 0.5rem;
+        }
+        .icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--accent-green);
+        }
+
+        .footer {
+            background-color: var(--bg-medium);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: #a0aec0;
+            border-top: 1px solid var(--bg-light);
+        }
+
+        .floating-download-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background-color: var(--accent-green);
+            color: white;
+            font-size: 1.8rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 15px rgba(72, 187, 120, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .floating-download-btn:hover {
+            background-color: #38a169;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 20px rgba(72, 187, 120, 0.5);
+        }
+        @media (max-width: 768px) {
+            .floating-download-btn {
+                bottom: 1.5rem;
+                left: 1.5rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: left;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .experience-timeline {
+                padding-left: 0;
+            }
+            .experience-timeline::before {
+                left: 10px;
+            }
+            .experience-item::before {
+                left: 0px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                right: 1.5rem;
+                top: 1.5rem;
+            }
+            .navbar .logo {
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">Soham Kulkarni</div>
+            <button class="menu-toggle" id="menuToggle">&#9776;</button>
+            <nav class="nav-links" id="navbarNav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Soham Kulkarni</h1>
+                <p>Front-End Developer | Data Analyst | Prompt Engineer | Ethical Hacking Expert</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container about-content">
+                <h2 class="section-title">About Me</h2>
+                <img src="P.jpg" alt="Soham Kulkarni" class="about-image">
+                <div class="about-text">
+                    <p>I am a passionate and driven Computer Science Engineering student currently pursuing my B.Tech at PCET's Pimpri Chinchwad University.</p>
+                    <p>My academic journey has equipped me with a strong foundation in various technical domains, including Web Development (HTML, CSS), Data Analytics, and Prompt Engineering.</p>
+                    <p>My virtual internships at PwC Switzerland, Accenture North America, and Zidio (UI/UX Designer) have provided me with invaluable hands-on experience in data visualization, analysis, problem-solving, and user experience design.</p>
+                    <p>With a keen eye for detail and a commitment to data-driven decision-making, I thrive on building interactive and user-centric applications. I am always eager to learn new technologies and apply my skills to create innovative solutions that attract clients and solve real-world problems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-card-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-icon">📊</div>
+                        <h3>Data Analytics</h3>
+                        <ul>
+                            <li>Power BI</li>
+                            <li>Data Modeling</li>
+                            <li>Data Cleaning</li>
+                            <li>Data Presentation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-icon">🤖</div>
+                        <h3>Prompt Engineering</h3>
+                        <ul>
+                            <li>Advance Prompt Engineering</li>
+                            <li>Llama 2 & 3</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-icon">✏️</div>
+                        <h3>Design & Tools</h3>
+                        <ul>
+                            <li>Figma</li>
+                            <li>Fig-Jam</li>
+                            <li>Overleaf & LaTeX</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-icon">⚙️</div>
+                        <h3>Programming</h3>
+                        <ul>
+                            <li>C</li>
+                            <li>C++</li>
+                            <li>Python</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-icon">🔐</div>
+                        <h3>Cybersecurity</h3>
+                        <ul>
+                            <li>Foundations of Cybersecurity</li>
+                            <li>Ethical Hacking</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-icon">☁️</div>
+                        <h3>Cloud</h3>
+                        <ul>
+                            <li>Oracle Cloud Infrastructure</li>
+                            <li>AWS</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-icon">🐧</div>
+                        <h3>Operating Systems</h3>
+                        <ul>
+                            <li>Windows (XP, 7, 8, 10, 11)</li>
+                            <li>Kali Linux (GUI/Non-GUI)</li>
+                            <li>Ubuntu</li>
+                            <li>Linux Machine Language</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <h3>CodSoft</h3>
+                        <p class="role">Web Development Virtual Internship</p>
+                        <p class="date">10 June 2025 - 10 July 2025 (Currently Working)</p>
+                        <ul>
+                            <li>Selected for a 4-week virtual internship focusing on Web Development.</li>
+                            <li>Primary focus on learning and developing new skills in web technologies.</li>
+                            <li>Gaining hands-on knowledge by performing various web development tasks/projects.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Zidio</h3>
+                        <p class="role">UI/UX Designer, Remote Internship</p>
+                        <p class="date">May 2025 - Completed</p>
+                        <ul>
+                            <li>Completed a one-month remote internship focusing on UI/UX design principles and practices.</li>
+                            <li>Gained hands-on experience in user research, wireframing, and prototyping for digital products.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>PwC, Switzerland</h3>
+                        <p class="role">Data Analyst - Power BI, Virtual Internship</p>
+                        <p class="date">July 2024 - Completed</p>
+                        <ul>
+                            <li>Strengthened Power BI skills to better understand clients and prioritise their data visualization needs.</li>
+                            <li>Demonstrated expertise in data visualization through the creation of Power BI dashboards that effectively conveyed KPIs.</li>
+                            <li>Communicated key insights and actionable suggestions based on data analysis to engagement partners.</li>
+                            <li>Examined HR data, focusing on gender-related KPIs, and identified root causes for gender balance issues at the executive management level.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Accenture, North America</h3>
+                        <p class="role">Data Analytics, Virtual Internship</p>
+                        <p class="date">July 2024 - Completed</p>
+                        <ul>
+                            <li>Advised a hypothetical social media client as a Data Analyst.</li>
+                            <li>Cleaned, modeled, and analyzed 7 datasets to uncover insights into content trends.</li>
+                            <li>Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholders.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/667eea/ffffff?text=PowerBI+Dashboard" alt="Power BI Dashboard">
+                        <div class="project-content">
+                            <h3>Power BI Dashboard for PwC</h3>
+                            <p>Created interactive Power BI dashboards to convey KPIs and data insights for client understanding.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Power BI</span>
+                                <span class="project-tag">Data Visualization</span>
+                                <span class="project-tag">KPI Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/9f7aea/ffffff?text=Data+Analysis" alt="Data Analysis Project">
+                        <div class="project-content">
+                            <h3>Data Analysis for Accenture</h3>
+                            <p>Analyzed 7 datasets to uncover content trends and inform strategic decisions for a social media client.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Data Analysis</span>
+                                <span class="project-tag">Data Modeling</span>
+                                <span class="project-tag">Excel</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/48bb78/ffffff?text=Calculator" alt="Calculator App">
+                        <div class="project-content">
+                            <h3>Calculator App (HTML/CSS/JS)</h3>
+                            <p>A functional and responsive web-based calculator demonstrating core front-end skills.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="calculator.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/ef4444/ffffff?text=RDP+Hosting" alt="Remote RDP Hosting">
+                        <div class="project-content">
+                            <h3>Remote RDP Hosting Solution</h3>
+                            <p>Developed a solution for efficient remote RDP hosting and resource management.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Networking</span>
+                                <span class="project-tag">System Admin</span>
+                                <span class="project-tag">Scripting</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/63b3ed/ffffff?text=Ecommerce+Figma" alt="E-commerce Figma Prototype">
+                        <div class="project-content">
+                            <h3>E-commerce Website Prototype (Figma)</h3>
+                            <p>Comprehensive UI/UX prototype for an e-commerce platform, focusing on user flow and visual appeal.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Figma</span>
+                                <span class="project-tag">UI/UX Design</span>
+                                <span class="project-tag">Prototyping</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub (Design Files)</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/a0aec0/ffffff?text=Chatbot+Figma" alt="Chatbot Figma Prototype">
+                        <div class="project-content">
+                            <h3>Chatbot App Prototype (Figma)</h3>
+                            <p>Interactive app prototype for a chatbot, designed for intuitive user interaction and conversational flow.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Figma</span>
+                                <span class="project-tag">UI/UX Design</span>
+                                <span class="project-tag">Chatbot Design</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub (Design Files)</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/d53f8c/ffffff?text=C#+Game+Dev" alt="C# Game Development">
+                        <div class="project-content">
+                            <h3>Game Development Project (C#)</h3>
+                            <p>Developed a basic console-based Snake game using C#, demonstrating game logic and console rendering.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C#</span>
+                                <span class="project-tag">Game Dev</span>
+                                <span class="project-tag">Console App</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/400x200/ecc94b/ffffff?text=Cybersecurity+Project" alt="Cybersecurity Project">
+                        <div class="project-content">
+                            <h3>Major Cybersecurity Project (In Progress)</h3>
+                            <p>Ongoing project in cybersecurity, focusing on enhancing system security and threat analysis.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Cybersecurity</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Networking</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 3rem; font-size: 1rem;">
+                    For more projects, visit my <a href="https://github.com/Sohamlkulk" target="_blank" rel="noopener noreferrer">GitHub Profile</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container contact-content">
+                <h2 class="section-title">Get In Touch</h2>
+                <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                <div class="contact-info">
+                    <p><strong class="icon">📧</strong> Email: <a href="mailto:sohamlkulk@gmail.com">sohamlkulk@gmail.com</a></p>
+                    <p><strong class="icon">📞</strong> Phone: +91 8087788962</p>
+                    <p><strong class="icon">🔗</strong> LinkedIn: <a href="https://www.linkedin.com/in/soham-kulkarni-852733316" target="_blank" rel="noopener noreferrer">soham-kulkarni</a></p>
+                    <p><strong class="icon">📍</strong> Address: Polite Harmony, Chikhali, Pimpri Chinchwad, Pune, India 411062</p>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            &copy; 2024 Soham Kulkarni. All rights reserved.
+        </div>
+    </footer>
+
+    <a href="P.pdf" class="floating-download-btn" download="Soham_Kulkarni_Resume.pdf" title="Download Resume">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+    </a>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            var nav = document.getElementById('navbarNav');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            } else {
+                nav.classList.add('active');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(item => {
+            item.addEventListener('click', () => {
+                const nav = document.getElementById('navbarNav');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
